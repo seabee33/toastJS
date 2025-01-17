@@ -3,8 +3,11 @@
 function toast(message, bgColor, secondToDisappear){
 	$('.toastBox').css('background-color', bgColor);
 	$('.toastBox').text(message);
-	$('.toastBox').fadeToggle();
-	$('.toastBox').css('display', 'flex');
+	$('.toastBox').fadeIn();
 
-	$('.toastBox').delay(secondToDisappear * 1000).fadeToggle();
+	$('.toastBox').delay(secondToDisappear * 1000).fadeOut();
 }
+
+$('.toastBox').on('click', function(){
+	$(this).stop(true, true).fadeOut().slideUp();
+})
